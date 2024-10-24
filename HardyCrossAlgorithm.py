@@ -253,6 +253,11 @@ elif StartIndex == 3:
             PipeAB = CornerA
             PipeBC = -1 * CornerC
 
+    elif CornerA < 0:
+        PipeAD = -1 * CornerA
+        CornerD = CornerD + CornerA
+        PipeCD = -1 * CornerD 
+        
 
 print(PipeAB)
 print(PipeBC)
