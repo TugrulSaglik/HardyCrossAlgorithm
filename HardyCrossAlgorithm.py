@@ -258,7 +258,21 @@ elif StartIndex == 3:
         CornerD = CornerD + CornerA
         PipeCD = -1 * CornerD 
         
+        CornerC = CornerD + CornerC
+        PipeAC = CornerC / 2
+        ClockwiseFlowAC = 2
+        PipeBC = -1 * (CornerC / 2) 
+        PipeAB = (CornerC / 2)
 
+    elif CornerC < 0:
+        PipeCD = CornerC
+        CornerD = CornerD + CornerC
+        PipeAD = CornerD
+
+        CornerA = CornerA + CornerD
+        PipeAC = CornerA / 2
+        ClockwiseFlowAC = 1
+        Pipe
 print(PipeAB)
 print(PipeBC)
 print(PipeAC)
