@@ -29,7 +29,7 @@ while CornerInput < 4:
             CornerInput = CornerInput + 1
         except ValueError:
             print("Invalid input. Please enter a number: ")
-    
+
     elif CornerInput == 1:
         try:
             CornerB = int(input("Enter flow at point B: "))
@@ -63,28 +63,28 @@ while PipeInput < 5:
             PipeInput = PipeInput + 1
         except ValueError:
             print("Invalid input. Please enter a number: ")
-        
+
     elif PipeInput == 1:
         try:
             KPipeBC = int(input("Enter K value for pipe BC: "))
             PipeInput = PipeInput + 1
         except ValueError:
             print("Invalid input. Please enter a number: ")
-        
+
     elif PipeInput == 2:
         try:
             KPipeAC = int(input("Enter K value for pipe AC: "))
             PipeInput = PipeInput + 1
         except ValueError:
             print("Invalid input. Please enter a number: ")
-        
+
     elif PipeInput == 3:
         try:
             KPipeCD = int(input("Enter K value for pipe CD: "))
             PipeInput = PipeInput + 1
         except ValueError:
             print("Invalid input. Please enter a number: ")
-        
+
     else:
         try:
             KPipeAD = int(input("Enter K value for pipe AD: "))
@@ -199,7 +199,7 @@ if StartIndex == 1:
         PipeBC = (CornerB / 2)
         CornerA = CornerA + (CornerB / 2)
         CornerC = CornerC + (CornerB / 2)
-        
+
         if CornerA > CornerC:
             PipeAC = CornerA / 2
             ClockwiseFlowAC = 1
@@ -211,11 +211,11 @@ if StartIndex == 1:
             ClockwiseFlowAC = 2
             PipeAD = -1 * (CornerA + (CornerC / 2))
             PipeCD = CornerC / 2
-        
+
         else:
             PipeAD = -1 * (CornerA)
             PipeCD = CornerC
-    
+
     elif (abs(CornerA) < abs(CornerC)):
         PipeAB = CornerA
         PipeBC = CornerB + CornerA
@@ -251,13 +251,13 @@ elif StartIndex == 3:
             ClockwiseFlowAC = 1
             PipeAB = CornerA/2
             PipeBC = -1 * (CornerC + (CornerA / 2))
-        
+
         elif CornerA < CornerC:
             PipeAC = CornerC / 2
             ClockwiseFlowAC = 2
             PipeAB = CornerA + (CornerC / 2)
             PipeBC = -1 * (CornerC / 2)
-        
+
         else:
             PipeAB = CornerA
             PipeBC = -1 * CornerC
@@ -266,7 +266,7 @@ elif StartIndex == 3:
         PipeAD = -1 * CornerA
         CornerD = CornerD + CornerA
         PipeCD = -1 * CornerD 
-        
+
         CornerC = CornerD + CornerC
         PipeAC = CornerC / 2
         ClockwiseFlowAC = 2
@@ -291,7 +291,7 @@ elif StartIndex == 0:
         PipeAC = CornerA
         ClockwiseFlowAC = 1
         PipeCD = -1 * CornerD
-    
+
     elif(CornerB * CornerD < 0) and (CornerB >= 0):
         PipeAD = -1 * CornerA
         CornerD = CornerD + CornerA
@@ -317,7 +317,7 @@ elif StartIndex == 2:
         PipeAC = CornerC
         ClockwiseFlowAC = 2
         PipeAD = CornerD
-    
+
     elif(CornerB * CornerD < 0) and (CornerB >= 0):
 
         CornerD = CornerD + CornerC
@@ -345,12 +345,12 @@ print("Pipe AC is positive for loop " + str(ClockwiseFlowAC))
 print("Pipe CD assumption: " + str(PipeCD))
 print("Pipe AD assumption: " + str(PipeAD))
 
-while (CorrectionValue1 > StopWhen) and (CorrectionValue2 > StopWhen):
-    
-    if ClockwiseFlowAC == 1:
-        CorrectionValue1 = (KPipeAD * PipeAD * abs(PipeAD) + KPipeCD * PipeCD * abs(PipeCD) + KPipeAC * PipeAC * PipeAC) / (2 * KPipeAD * abs(PipeAD) + 2 * KPipeCD * abs(PipeCD) + 2 *KPipeAC * PipeAC)
+while (abs(CorrectionValue1) > StopWhen) and (abs(CorrectionValue2) > StopWhen):
 
-        CorrectionValue2 = (KPipeAB * PipeAB * abs(PipeAB) + KPipeBC * PipeBX * abs(PipeBC) - KPipeAC * PipeAC * PipeAC) / (2 * KPipeAB * abs(PipeAB) + 2 * KPipeBC * abs(PipeBC) + 2 *KPipeAC * PipeAC)
+    if ClockwiseFlowAC == 1:
+        CorrectionValue1 = -1 * (KPipeAD * PipeAD * abs(PipeAD) + KPipeCD * PipeCD * abs(PipeCD) + KPipeAC * PipeAC * PipeAC) / (2 * KPipeAD * abs(PipeAD) + 2 * KPipeCD * abs(PipeCD) + 2 *KPipeAC * PipeAC)
+
+        CorrectionValue2 = -1 * (KPipeAB * PipeAB * abs(PipeAB) + KPipeBC * PipeBX * abs(PipeBC) - KPipeAC * PipeAC * PipeAC) / (2 * KPipeAB * abs(PipeAB) + 2 * KPipeBC * abs(PipeBC) + 2 *KPipeAC * PipeAC)
 
         PipeAD = PipeAD + CorrectionValue1 
         PipeCD = PipeCD + CorrectionValue1 
@@ -369,7 +369,9 @@ while (CorrectionValue1 > StopWhen) and (CorrectionValue2 > StopWhen):
         PipeAC = PipeAC - CorrectionValue1 + CorrectionValue2 
         PipeAB = PipeAB + CorrectionValue2 
         PipeBC = PipeBC + CorrectionValue2
-
+    
+    print(CorrectionValue1)
+    print(CorrectionValue2)
 print("Pipe AB assumption: " + str(PipeAB))
 print("Pipe BC assumption: " + str(PipeBC))
 print("Pipe AC assumption: " + str(PipeAC))
