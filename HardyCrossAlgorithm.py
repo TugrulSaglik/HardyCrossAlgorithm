@@ -338,9 +338,9 @@ elif StartIndex == 2:
         PipeCD = abs(CornerD)
 
 #Assumed flow in pipes
-print("Pipe AB assumption: " + PipeAB)
-print("Pipe BC assumption: " + PipeBC)
-print("Pipe AC assumption: " + PipeAC)
-print("Pipe AC is positive for loop " + ClockwiseFlowAC)
-print("Pipe CD assumption: " + PipeCD)
-print("Pipe AD assumption: " + PipeAD)
+print("Pipe AB assumption: " + str(PipeAB))
+print("Pipe BC assumption: " + str(PipeBC))
+print("Pipe AC assumption: " + str(PipeAC))
+print("Pipe AC is positive for loop " + str(ClockwiseFlowAC))
+print("Pipe CD assumption: " + str(PipeCD))
+print("Pipe AD assumption: " + str(PipeAD))
