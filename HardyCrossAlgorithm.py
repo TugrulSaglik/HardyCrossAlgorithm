@@ -278,22 +278,28 @@ elif StartIndex == 3:
 elif StartIndex == 0:
 
     if (CornerB >= 0) and (CornerD >= 0):
-        PipeAB = abs(CornerB)
-        PipeAC = abs(CornerC)
+        PipeBC = CornerB
+        PipeAC = CornerA
         ClockwiseFlowAC = 1
-        PipeAD = CornerD
+        PipeCD = -1 * CornerD
     
-    elif(CornerB * CornerD < 0) and (CornerB > 0):
+    elif(CornerB * CornerD < 0) and (CornerB >= 0):
         PipeAD = -1 * CornerA
         CornerD = CornerD + CornerA
         PipeCD = CornerD * -1
         PipeBC = CornerB
 
-    elif (CornerB * CornerD < 0) and (CornerD > 0):
+    elif (CornerB * CornerD < 0) and (CornerD >= 0):
         PipeAB = CornerA
         CornerB = CornerB + CornerA 
         PipeCD = -1 * CornerD 
-        
+        PipeBC = CornerB
+
+    else:
+        PipeAB = abs(CornerB)
+        PipeAC = abs(CornerC)
+        ClockwiseFlowAC = 1
+        PipeAD = CornerD
 
 print(PipeAB)
 print(PipeBC)
