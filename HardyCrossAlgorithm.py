@@ -301,6 +301,34 @@ elif StartIndex == 0:
         ClockwiseFlowAC = 1
         PipeAD = CornerD
 
+elif StartIndex == 2:
+
+    if (CornerB >= 0) and (CornerD >= 0):
+        PipeAB = -1 * CornerB
+        PipeAC = CornerC
+        ClockwiseFlowAC = 2
+        PipeAD = CornerD
+    
+    elif(CornerB * CornerD < 0) and (CornerB >= 0):
+
+        CornerD = CornerD + CornerC
+        PipeCD = CornerC
+        PipeAB = -1 * CornerB
+        PipeAD = CornerD
+
+    elif (CornerB * CornerD < 0) and (CornerD >= 0):
+        PipeBC = -1 * CornerC 
+        CornerB = CornerB + CornerC
+        PipeAB = -1 * CornerB
+        PipeAD = CornerD
+
+    else:
+        PipeBC = CornerB
+        PipeAC = abs(CornerA)
+        ClockwiseFlowAC = 2
+        PipeCD = abs(CornerD)
+  
+    
 print(PipeAB)
 print(PipeBC)
 print(PipeAC)
