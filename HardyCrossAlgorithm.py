@@ -2,7 +2,16 @@
 #Any one of the K and Q values can be changed as needed.
 #Negative Q values at the corners mean water is exiting the system at the point.
 #Positive Q values at the corners mean water is entering the system at the point.
-#You can enter the Q and K values from the console after executing the code, or if you prefer delete it and set the values manually.
+#You can enter the Q and K values from the console after executing the code, or if you prefer set the values from the source code.
+
+#Variable that tells the algorithm when to stop, if the correction is smaller than this value in both loops.
+#You can manually set this value to your liking.
+StopWhen = 0.1
+
+#Defining the correction variables.
+#They can be initialized to anything larger than StopWhen
+CorrectionValue1 = 255
+CorrectionValue2 = 255
 
 #Variables to keep track of which corner or pipe the input is for.
 CornerInput = 0
@@ -169,7 +178,7 @@ if (StartIndex == 2) and FirstLoopFailed:
             PipeAD = -1 * CornerA
             PipeCD = CornerC
 
-    #Set as an impossible number so the next check definitely fails, as the assumption has been made already.
+#Set as an impossible number so the next check definitely fails, as the assumption has been made already.
     StartIndex = 9
 
 #After selecting a starting point, the code diverges for every possible starting index, while assuming flows.
@@ -327,11 +336,11 @@ elif StartIndex == 2:
         PipeAC = abs(CornerA)
         ClockwiseFlowAC = 2
         PipeCD = abs(CornerD)
-  
-    
-print(PipeAB)
-print(PipeBC)
-print(PipeAC)
-print(ClockwiseFlowAC)
-print(PipeCD)
-print(PipeAD)
+
+#Assumed flow in pipes
+print("Pipe AB assumption: " + PipeAB)
+print("Pipe BC assumption: " + PipeBC)
+print("Pipe AC assumption: " + PipeAC)
+print("Pipe AC is positive for loop " + ClockwiseFlowAC)
+print("Pipe CD assumption: " + PipeCD)
+print("Pipe AD assumption: " + PipeAD)
