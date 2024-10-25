@@ -207,7 +207,7 @@ if StartIndex == 1:
             PipeAD = -1 * (CornerA)
             PipeCD = CornerC
     
-    elif (CornerA < 0):
+    elif (abs(CornerA) < abs(CornerC)):
         PipeAB = CornerA
         PipeBC = CornerB + CornerA
         CornerA = 0
@@ -218,7 +218,7 @@ if StartIndex == 1:
         PipeAD = -1 * (CornerC / 2)
         PipeCD = CornerC / 2
 
-    elif (CornerC < 0):
+    elif (abs(CornerC) < abs(CornerA)):
         PipeBC = -1 * CornerC
         PipeAB = -1 * (CornerB + CornerC)
         CornerA = CornerA + CornerB + CornerC
@@ -253,7 +253,7 @@ elif StartIndex == 3:
             PipeAB = CornerA
             PipeBC = -1 * CornerC
 
-    elif CornerA < 0:
+    elif (abs(CornerA) < abs(CornerC)):
         PipeAD = -1 * CornerA
         CornerD = CornerD + CornerA
         PipeCD = -1 * CornerD 
@@ -264,7 +264,7 @@ elif StartIndex == 3:
         PipeBC = -1 * (CornerC / 2) 
         PipeAB = (CornerC / 2)
 
-    elif CornerC < 0:
+    elif abs(CornerC) < abs(CornerA):
         PipeCD = CornerC
         CornerD = CornerD + CornerC
         PipeAD = CornerD
@@ -272,7 +272,29 @@ elif StartIndex == 3:
         CornerA = CornerA + CornerD
         PipeAC = CornerA / 2
         ClockwiseFlowAC = 1
-        Pipe
+        PipeAB = CornerA / 2
+        PipeBC = -1 * (CornerA / 2)
+
+elif StartIndex == 0:
+
+    if (CornerB >= 0) and (CornerD >= 0):
+        PipeAB = abs(CornerB)
+        PipeAC = abs(CornerC)
+        ClockwiseFlowAC = 1
+        PipeAD = CornerD
+    
+    elif(CornerB * CornerD < 0) and (CornerB > 0):
+        PipeAD = -1 * CornerA
+        CornerD = CornerD + CornerA
+        PipeCD = CornerD * -1
+        PipeBC = CornerB
+
+    elif (CornerB * CornerD < 0) and (CornerD > 0):
+        PipeAB = CornerA
+        CornerB = CornerB + CornerA 
+        PipeCD = -1 * CornerD 
+        
+
 print(PipeAB)
 print(PipeBC)
 print(PipeAC)
