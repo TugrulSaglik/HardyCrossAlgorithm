@@ -344,3 +344,12 @@ print("Pipe AC assumption: " + str(PipeAC))
 print("Pipe AC is positive for loop " + str(ClockwiseFlowAC))
 print("Pipe CD assumption: " + str(PipeCD))
 print("Pipe AD assumption: " + str(PipeAD))
+
+while (CorrectionValue1 > StopWhen) and (CorrectionValue2 > StopWhen):
+    
+    if ClockwiseFlowAC == 1:
+        CorrectionValue1 = (KPipeAD * PipeAD * abs(PipeAD) + KPipeCD * PipeCD * abs(PipeCD) + KPipeAC * PipeAC * PipeAC) / (2 * KPipeAD * abs(PipeAD) + 2 * KPipeCD * abs(PipeCD) + 2 *KPipeAC * PipeAC)
+
+        CorrectionValue2 = (KPipeAB * PipeAB * abs(PipeAB) + KPipeBC * PipeBX * abs(PipeBC) - KPipeAC * PipeAC * PipeAC) / (2 * KPipeAB * abs(PipeAB) + 2 * KPipeBC * abs(PipeBC) + 2 *KPipeAC * PipeAC)
+
+        PipeAD = 
