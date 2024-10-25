@@ -350,7 +350,7 @@ while (abs(CorrectionValue1) > StopWhen) and (abs(CorrectionValue2) > StopWhen):
     if ClockwiseFlowAC == 1:
         CorrectionValue1 = -1 * (KPipeAD * PipeAD * abs(PipeAD) + KPipeCD * PipeCD * abs(PipeCD) + KPipeAC * PipeAC * PipeAC) / (2 * KPipeAD * abs(PipeAD) + 2 * KPipeCD * abs(PipeCD) + 2 *KPipeAC * PipeAC)
 
-        CorrectionValue2 = -1 * (KPipeAB * PipeAB * abs(PipeAB) + KPipeBC * PipeBX * abs(PipeBC) - KPipeAC * PipeAC * PipeAC) / (2 * KPipeAB * abs(PipeAB) + 2 * KPipeBC * abs(PipeBC) + 2 *KPipeAC * PipeAC)
+        CorrectionValue2 = -1 * (KPipeAB * PipeAB * abs(PipeAB) + KPipeBC * PipeBC * abs(PipeBC) - KPipeAC * PipeAC * PipeAC) / (2 * KPipeAB * abs(PipeAB) + 2 * KPipeBC * abs(PipeBC) + 2 *KPipeAC * PipeAC)
 
         PipeAD = PipeAD + CorrectionValue1 
         PipeCD = PipeCD + CorrectionValue1 
@@ -372,9 +372,9 @@ while (abs(CorrectionValue1) > StopWhen) and (abs(CorrectionValue2) > StopWhen):
 
     print(CorrectionValue1)
     print(CorrectionValue2)
-print("Pipe AB assumption: " + str(PipeAB))
-print("Pipe BC assumption: " + str(PipeBC))
-print("Pipe AC assumption: " + str(PipeAC))
+print("Pipe AB after correction: " + str(PipeAB))
+print("Pipe BC after correction: " + str(PipeBC))
+print("Pipe AC after correction: " + str(PipeAC))
 print("Pipe AC is positive for loop " + str(ClockwiseFlowAC))
-print("Pipe CD assumption: " + str(PipeCD))
-print("Pipe AD assumption: " + str(PipeAD))
+print("Pipe CD after correction: " + str(PipeCD))
+print("Pipe AD after correction: " + str(PipeAD))
