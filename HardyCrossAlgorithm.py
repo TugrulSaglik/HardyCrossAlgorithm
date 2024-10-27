@@ -502,9 +502,9 @@ while (abs(CorrectionValue1) > StopWhen) and (abs(CorrectionValue2) > StopWhen):
 
     # Correction value formula and addition, if the sign of the flow in AC is set according to loop 1.
     if ClockwiseFlowAC == 1:
-        CorrectionValue1 = -1 * (KPipeAD * PipeAD * abs(PipeAD) + KPipeCD * PipeCD * abs(PipeCD) + KPipeAC * PipeAC * PipeAC) / (2 * KPipeAD * abs(PipeAD) + 2 * KPipeCD * abs(PipeCD) + 2 *KPipeAC * PipeAC)
+        CorrectionValue1 = -1 * (KPipeAD * PipeAD * abs(PipeAD) + KPipeCD * PipeCD * abs(PipeCD) + KPipeAC * PipeAC * abs(PipeAC)) / (2 * KPipeAD * abs(PipeAD) + 2 * KPipeCD * abs(PipeCD) + 2 *KPipeAC * abs(PipeAC))
 
-        CorrectionValue2 = -1 * (KPipeAB * PipeAB * abs(PipeAB) + KPipeBC * PipeBC * abs(PipeBC) - KPipeAC * PipeAC * PipeAC) / (2 * KPipeAB * abs(PipeAB) + 2 * KPipeBC * abs(PipeBC) + 2 *KPipeAC * PipeAC)
+        CorrectionValue2 = -1 * (KPipeAB * PipeAB * abs(PipeAB) + KPipeBC * PipeBC * abs(PipeBC) - KPipeAC * PipeAC * abs(PipeAC)) / (2 * KPipeAB * abs(PipeAB) + 2 * KPipeBC * abs(PipeBC) + 2 *KPipeAC * abs(PipeAC))
 
         PipeAD = PipeAD + CorrectionValue1 
         PipeCD = PipeCD + CorrectionValue1 
@@ -514,21 +514,21 @@ while (abs(CorrectionValue1) > StopWhen) and (abs(CorrectionValue2) > StopWhen):
 
     # Correction value formula and addition, if the sign of the flow in AC is set according to loop 2.
     elif ClockwiseFlowAC == 2:
-        CorrectionValue1 = -1 * (KPipeAD * PipeAD * abs(PipeAD) + KPipeCD * PipeCD * abs(PipeCD) - KPipeAC * PipeAC * PipeAC) / (2 * KPipeAD * abs(PipeAD) + 2 * KPipeCD * abs(PipeCD) + 2 *KPipeAC * PipeAC)
+        CorrectionValue1 = -1 * (KPipeAD * PipeAD * abs(PipeAD) + KPipeCD * PipeCD * abs(PipeCD) - KPipeAC * PipeAC * abs(PipeAC)) / (2 * KPipeAD * abs(PipeAD) + 2 * KPipeCD * abs(PipeCD) + 2 *KPipeAC * abs(PipeAC))
 
-        CorrectionValue2 =-1 * (KPipeAB * PipeAB * abs(PipeAB) + KPipeBC * PipeBC * abs(PipeBC) + KPipeAC * PipeAC * PipeAC) / (2 * KPipeAB * abs(PipeAB) + 2 * KPipeBC * abs(PipeBC) + 2 *KPipeAC * PipeAC)
+        CorrectionValue2 =-1 * (KPipeAB * PipeAB * abs(PipeAB) + KPipeBC * PipeBC * abs(PipeBC) + KPipeAC * PipeAC * abs(PipeAC)) / (2 * KPipeAB * abs(PipeAB) + 2 * KPipeBC * abs(PipeBC) + 2 *KPipeAC * abs(PipeAC))
 
         PipeAD = PipeAD + CorrectionValue1 
         PipeCD = PipeCD + CorrectionValue1 
         PipeAC = PipeAC - CorrectionValue1 + CorrectionValue2 
         PipeAB = PipeAB + CorrectionValue2 
         PipeBC = PipeBC + CorrectionValue2
-    
+
     # Correction value formula and addition, if the sign of the flow in AC is not set, or the assumed flow in AC is 0.
     else:
-        CorrectionValue1 = -1 * (KPipeAD * PipeAD * abs(PipeAD) + KPipeCD * PipeCD * abs(PipeCD) - KPipeAC * PipeAC * PipeAC) / (2 * KPipeAD * abs(PipeAD) + 2 * KPipeCD * abs(PipeCD) + 2 *KPipeAC * PipeAC)
+        CorrectionValue1 = -1 * (KPipeAD * PipeAD * abs(PipeAD) + KPipeCD * PipeCD * abs(PipeCD) - KPipeAC * PipeAC * abs(PipeAC)) / (2 * KPipeAD * abs(PipeAD) + 2 * KPipeCD * abs(PipeCD) + 2 *KPipeAC * abs(PipeAC))
 
-        CorrectionValue2 =-1 * (KPipeAB * PipeAB * abs(PipeAB) + KPipeBC * PipeBC * abs(PipeBC) + KPipeAC * PipeAC * PipeAC) / (2 * KPipeAB * abs(PipeAB) + 2 * KPipeBC * abs(PipeBC) + 2 *KPipeAC * PipeAC)
+        CorrectionValue2 =-1 * (KPipeAB * PipeAB * abs(PipeAB) + KPipeBC * PipeBC * abs(PipeBC) + KPipeAC * PipeAC * abs(PipeAC)) / (2 * KPipeAB * abs(PipeAB) + 2 * KPipeBC * abs(PipeBC) + 2 *KPipeAC * abs(PipeAC))
 
         PipeAD = PipeAD + CorrectionValue1 
         PipeCD = PipeCD + CorrectionValue1 
